@@ -1,0 +1,4 @@
+@app.post("/enroll")
+def enroll_student(enrollment: Enrollment):
+    enrollments_collection.insert_one(enrollment.dict())
+    return {"message": "Student enrolled successfully"}

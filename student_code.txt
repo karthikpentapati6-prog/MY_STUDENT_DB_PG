@@ -1,0 +1,4 @@
+@app.post("/students")
+def create_student(student: Student):
+    result = students_collection.insert_one(student.dict())
+    return {"student_id": str(result.inserted_id)}
