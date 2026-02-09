@@ -1,0 +1,12 @@
+
+    teacher = None
+    if "teacher_id" in course:
+        teacher = teachers_collection.find_one(
+            {"_id": ObjectId(course["teacher_id"])}
+        )
+        teacher["_id"] = str(teacher["_id"])
+
+    course["_id"] = str(course["_id"])
+    course["teacher"] = teacher
+
+    return course
